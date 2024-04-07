@@ -57,7 +57,10 @@ const AllReviews = ({ setIsModalOpen, reviews }) => {
           </div>
         </div>
         <div className="mt-[16px] flex justify-between gap-[10px] items-center">
-          <div ref={divRef} className="flex-1 overflow-x-hidden scroll-smooth">
+          <div
+            ref={divRef}
+            className="flex-1 overflow-x-auto vsm:overflow-x-hidden scroll-smooth"
+          >
             <div className="w-fit flex items-center gap-[16px]">
               {filterList.map((filter, index) => (
                 <button

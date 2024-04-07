@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .reactions-wrap span,
+  .reactions2-wrap span {
+    @apply flex items-center gap-[3px];
+  }
+  .reactions-wrap span img {
+    @apply h-[24px] w-[14px];
+  }
+  .reactions-wrap span p {
+    @apply text-[10px] font-medium text-[#8F95B2] leading-[12px];
+  }
+  .reactions2-wrap span p {
+    @apply text-[14px] text-[#0D2159] leading-[115%];
+  }
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.herocards-overlay {
+  background: linear-gradient(to bottom, white, #fafcfd00, #fafcfd00, white);
+}
+
+.home .sections:hover > div {
+  animation-play-state: paused;
+}
+
+.home .section1 {
+  animation: slide-down 10s linear infinite forwards;
+}
+@keyframes slide-down {
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+.home .section2 {
+  animation: slide-up 10s linear infinite forwards;
+}
+@keyframes slide-up {
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  @keyframes slide-down {
+    to {
+      transform: translateY(0%);
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes slide-up {
+    to {
+      transform: translateY(0%);
+      transform: translateX(-50%);
+    }
+  }
+}

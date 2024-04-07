@@ -24,6 +24,11 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+nav div .active {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 .herocards-overlay {
   background: linear-gradient(to bottom, white, #fafcfd00, #fafcfd00, white);
 }

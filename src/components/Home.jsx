@@ -1,6 +1,7 @@
 import React from "react";
 import search from "../assets/ic_search.svg";
 import HeroCard from "./HeroCard";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -29,7 +30,10 @@ const Home = () => {
         </button>
       </div>
 
-      <div className="sections relative h-fit xl:h-[1024px] w-full xl:w-[506px] overflow-hidden flex flex-col gap-[30px] xl:gap-0 xl:flex-row bg-[#FAFCFD] justify-between">
+      <Link
+        to="/all-reviews"
+        className="sections relative h-fit xl:h-[1024px] w-full xl:w-[506px] overflow-hidden flex flex-col gap-[30px] xl:gap-0 xl:flex-row bg-[#FAFCFD] justify-between"
+      >
         <div className="section1 xl:translate-y-[-100%] flex flex-row xl:flex-col gap-0 xl:gap-[24px]">
           <div className="flex flex-row xl:flex-col gap-[24px]">
             <HeroCard label="traffic" color="#F5E9CB" />
@@ -60,7 +64,7 @@ const Home = () => {
         </div>
 
         <div className="herocards-overlay absolute h-full w-full top-0 left-0"></div>
-      </div>
+      </Link>
     </div>
   );
 };

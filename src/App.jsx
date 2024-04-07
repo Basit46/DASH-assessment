@@ -7,7 +7,7 @@ import Navbar from "./components/Navbar";
 
 const App = () => {
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
-  const [reviews, setReviews] = useState([{ rating: 4, text: "loremmmmmmm" }]);
+  const [reviews, setReviews] = useState([]);
   return (
     <div className="">
       <Navbar />

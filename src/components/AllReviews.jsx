@@ -87,11 +87,7 @@ const AllReviews = ({ setIsModalOpen, reviews }) => {
               <Review key={i} rating={review.rating} text={review.text} />
             ))}
           <Review like="1224" dislike="4" comment="24" />
-          {/* <Review like="1000" dislike="24" comment="24" />
-          <Review like="900" dislike="24" comment="24" />
-          <Review like="214" dislike="24" comment="24" />
-          <Review like="169" dislike="24" comment="24" />
-          <Review like="99" dislike="24" comment="24" /> */}
+          <Review like="1000" dislike="24" comment="24" />
         </div>
 
         <div className="xmd:sticky top-[40px] pb-[40px] xmd:pb-0 w-full xmd:w-[486px] h-fit flex flex-wrap gap-[16px]">

@@ -18,7 +18,7 @@ const CreateReview = ({ isModalOpen, setIsModalOpen, setReviews }) => {
 
     if (val != "") {
       await setReviews((prev) => [...prev, { rating: 4, text: val }]);
-      setVal(" ");
+      setVal("");
       setIsModalOpen(false);
       alert("Review Added");
     } else {
@@ -87,7 +87,9 @@ const CreateReview = ({ isModalOpen, setIsModalOpen, setReviews }) => {
           >
             SUBMIT
           </button>
+
           <button
+            type="reset"
             onClick={() => setIsModalOpen(false)}
             className="w-[48%] border-[0.5px] border-[#5378F6] py-[7px] vsm:py-[16px] px-[10px] vsm:px-[40px] rounded-[6px] text-[#3366FF] font-medium"
           >

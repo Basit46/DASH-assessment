@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import avatar from "../assets/avatar.svg";
 import searchIcon from "../assets/ic_search2.svg";
@@ -41,6 +41,7 @@ const Navbar = () => {
       )}
 
       <div className="flex items-center gap-[13px]">
+        <NavLink to="/all-reviews">Reviews</NavLink>
         <p className="text-[#101012] font-[500]">Welcome!</p>
         <img
           className="h-[36px] w-[36px] rounded-full"

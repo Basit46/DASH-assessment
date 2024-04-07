@@ -1,10 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MdOutlineStar } from "react-icons/md";
 
-const CreateReview = ({ isModalOpen, setIsModalOpen }) => {
-  const handleSubmit = (e) => {
+const CreateReview = ({ isModalOpen, setIsModalOpen, setReviews }) => {
+  const [val, setVal] = useState("");
+  const [changeBtnColour, setChangeBtnColour] = useState(false);
+
+  useEffect(() => {
+    if (val != "") {
+      setChangeBtnColour(true);
+    } else {
+      setChangeBtnColour(false);
+    }
+  }, [val]);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (val != "") {
+      await setReviews((prev) => [...prev, { rating: 4, text: val }]);
+      setVal(" ");
+      setIsModalOpen(false);
+      alert("Review Added");
+    } else {
+      alert("Please add a review");
+    }
   };
+
   return (
     <div
       className={`${
@@ -45,7 +66,11 @@ const CreateReview = ({ isModalOpen, setIsModalOpen }) => {
 
         <div className="mt-[24px]">
           <p className="mb-[14px] text-[14px]">Write Review</p>
-          <textarea className="w-full h-[173px] rounded-[6px] p-[12px] resize-none bg-[#FBFAFC] border border-[#D4DCF1]"></textarea>
+          <textarea
+            value={val}
+            onChange={(e) => setVal(e.target.value)}
+            className="w-full h-[173px] rounded-[6px] p-[12px] resize-none bg-[#FBFAFC] border border-[#D4DCF1]"
+          ></textarea>
         </div>
 
         <span className="mt-[5px] mb-[21.5px] flex gap-[6px] items-center">
@@ -54,7 +79,12 @@ const CreateReview = ({ isModalOpen, setIsModalOpen }) => {
         </span>
 
         <div className="flex items-center justify-between">
-          <button className="w-[48%] bg-[#E4E9FB] py-[7px] vsm:py-[16px] px-[10px] vsm:px-[40px] rounded-[6px] text-white font-medium">
+          <button
+            type="submit"
+            className={`${
+              changeBtnColour ? "bg-[blue]" : "bg-[#E4E9FB]"
+            } w-[48%] py-[7px] vsm:py-[16px] px-[10px] vsm:px-[40px] rounded-[6px] text-white font-medium`}
+          >
             SUBMIT
           </button>
           <button

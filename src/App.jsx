@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 
 const App = () => {
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
+  const [reviews, setReviews] = useState([{ rating: 4, text: "loremmmmmmm" }]);
   return (
     <div className="">
       <Navbar />
@@ -14,13 +15,23 @@ const App = () => {
       {/* Routes */}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/all-reviews" element={<AllReviews />} />
+        <Route
+          path="/all-reviews"
+          element={
+            <AllReviews
+              isModalOpen={isCreateModalOpen}
+              setIsModalOpen={setIsCreateModalOpen}
+              reviews={reviews}
+            />
+          }
+        />
       </Routes>
 
       {/* Modals */}
       <CreateReview
         isModalOpen={isCreateModalOpen}
         setIsModalOpen={setIsCreateModalOpen}
+        setReviews={setReviews}
       />
     </div>
   );

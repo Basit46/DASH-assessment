@@ -10,23 +10,7 @@ import img4 from "../assets/img4.jpg";
 import searchIcon from "../assets/ic_search2.svg";
 import cancelIcon from "../assets/ic_cancel.svg";
 
-const filterList = [
-  "Schools",
-  "Hospitals",
-  "Resort Parks",
-  "Shopping Malls",
-  "Airport",
-  "Train Station",
-  "Nightlife",
-  "Public Wife",
-  "Parking Lot",
-  "Security",
-  "Public Transport",
-  "Bus Station",
-  "Quiet",
-];
-
-const AllReviews = () => {
+const AllReviews = ({ setIsModalOpen, reviews }) => {
   const divRef = useRef();
 
   const handleScroll = () => {
@@ -57,7 +41,10 @@ const AllReviews = () => {
             </p>
           </div>
           <div className="flex gap-[16px]">
-            <button className="bg-[#3366FF] py-[6px] vsm:py-[16px] px-[10px] vsm:px-[40px] rounded-[6px] font-medium text-white">
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="bg-[#3366FF] py-[6px] vsm:py-[16px] px-[10px] vsm:px-[40px] rounded-[6px] font-medium text-white"
+            >
               LEAVE A REVIEW
             </button>
             <div className="p-[16px] border-[1.5px] rounded-[6px] border-[#3366FF] grid place-items-center">
@@ -93,12 +80,18 @@ const AllReviews = () => {
 
       <div className="w-full px-[20px] xmd:px-[50px] xl:px-[100px] mt-[32px] flex flex-col xmd:flex-row gap-[28px] justify-between">
         <div className="flex-1 flex flex-col gap-[16px]">
+          {reviews
+            .slice()
+            .reverse()
+            .map((review, i) => (
+              <Review key={i} rating={review.rating} text={review.text} />
+            ))}
           <Review like="1224" dislike="4" comment="24" />
-          <Review like="1000" dislike="24" comment="24" />
+          {/* <Review like="1000" dislike="24" comment="24" />
           <Review like="900" dislike="24" comment="24" />
           <Review like="214" dislike="24" comment="24" />
           <Review like="169" dislike="24" comment="24" />
-          <Review like="99" dislike="24" comment="24" />
+          <Review like="99" dislike="24" comment="24" /> */}
         </div>
 
         <div className="xmd:sticky top-[40px] pb-[40px] xmd:pb-0 w-full xmd:w-[486px] h-fit flex flex-wrap gap-[16px]">
@@ -155,5 +148,21 @@ const AllReviews = () => {
     </div>
   );
 };
+
+const filterList = [
+  "Schools",
+  "Hospitals",
+  "Resort Parks",
+  "Shopping Malls",
+  "Airport",
+  "Train Station",
+  "Nightlife",
+  "Public Wife",
+  "Parking Lot",
+  "Security",
+  "Public Transport",
+  "Bus Station",
+  "Quiet",
+];
 
 export default AllReviews;
